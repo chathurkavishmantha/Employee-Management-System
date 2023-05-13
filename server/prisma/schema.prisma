@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id             Int    @id @default(autoincrement()) @map("id")
+  fullName        String?         @map("full_ame") @db.VarChar(512)
+  nameWithInitials  String?       @map("name_with_initials") @db.Text
+  displayName       String?       @map("display_name") @db.Text
+  gender            String?       @map("gender") @db.VarChar(64)
+  dob               DateTime?     @map("dob")  @db.DateTime
+  email             String?       @map("email") @db.Text
+  mobileNumber      String?       @map("mobile_number") @db.VarChar(32)
+  designation       String?       @map("designation") @db.VarChar(256)
+  employeeType      String?       @map("employee_type") @db.VarChar(64)
+  joinedDate        DateTime?     @map("joined_date")  @db.DateTime
+  experiance        String?       @map("experiance") @db.VarChar(64)
+  salary            Int?          @map("salary")
+  personalNote      String?       @map("personal_note") @db.Text
+  createdAt         DateTime?     @map("created_at") @db.DateTime(0)
+  updatedAt         DateTime?     @default(now()) @map("updated_at") @db.DateTime(0)
+  @@map("employee")
+}
