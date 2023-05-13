@@ -1,4 +1,4 @@
-# Getting Start Server
+# Getting Start Project
 
 Tech Stack : Nodejs, Reactjs, Nestjs and MUI
 
